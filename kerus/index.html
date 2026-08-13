@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kerus Tours &amp; Travellers — Digital Transformation Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green:#0B3D2E; --green-2:#14532D; --gold:#C89B3C; --gold-soft:#E9D8AC;
+    --sand:#F7F4EE; --card:#FFFFFF; --stone:#E8E3D8; --ink:#14211B;
+    --muted:#5C6B63; --line:#E3DDD1;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--sand);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.15;color:var(--green)}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 28px}
+  section{padding:84px 0 20px}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  h2{font-size:clamp(28px,4vw,42px);margin-bottom:10px}
+  .lede{font-size:17px;color:var(--muted);max-width:720px;margin-bottom:34px}
+  p{margin-bottom:14px}
+  a{color:var(--green-2)}
+
+  /* Nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(11,61,46,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .navin{max-width:1060px;margin:0 auto;padding:12px 28px;display:flex;align-items:center;gap:22px}
+  .brand{font-family:'Fraunces',serif;color:#fff;font-weight:600;font-size:18px;letter-spacing:.04em;white-space:nowrap}
+  .brand span{color:var(--gold)}
+  .links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+  .links::-webkit-scrollbar{display:none}
+  .links a{color:rgba(255,255,255,.82);text-decoration:none;font-size:12.5px;font-weight:500;padding:6px 10px;border-radius:999px;white-space:nowrap}
+  .links a:hover{background:rgba(255,255,255,.1);color:#fff}
+
+  /* Cover */
+  .cover{position:relative;min-height:96vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+  .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .cover .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,33,25,.35) 0%,rgba(9,33,25,.15) 40%,rgba(9,33,25,.92) 100%)}
+  .cover .inner{position:relative;width:100%;max-width:1060px;margin:0 auto;padding:120px 28px 72px}
+  .cover .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-soft);border:1px solid rgba(233,216,172,.5);padding:8px 16px;border-radius:999px;margin-bottom:26px}
+  .cover h1{color:#fff;font-size:clamp(40px,6.4vw,76px);font-weight:500;letter-spacing:-.01em;max-width:900px}
+  .cover h1 em{font-style:italic;color:var(--gold-soft)}
+  .cover .sub{margin-top:22px;font-size:18px;max-width:640px;color:rgba(255,255,255,.88)}
+  .cover .meta{margin-top:44px;display:flex;flex-wrap:wrap;gap:28px;font-size:13px;color:rgba(255,255,255,.75)}
+  .cover .meta b{display:block;color:#fff;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:10.5px;margin-bottom:3px}
+  .northstar{margin-top:52px;border-left:3px solid var(--gold);padding:6px 0 6px 24px}
+  .northstar p{font-size:17.5px;color:#F4EFE4;margin:0}
+  .northstar strong{color:var(--gold-soft)}
+
+  /* Cards & grids */
+  .grid{display:grid;gap:18px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 1px 2px rgba(20,33,27,.04)}
+  .card h3{font-size:18px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--muted);margin:0}
+  .stat .n{font-family:'Fraunces',serif;font-size:34px;color:var(--green);font-weight:600;line-height:1.1}
+  .stat .l{font-size:13px;color:var(--muted);margin-top:4px}
+  .gold{color:var(--gold)}
+
+  /* Labels */
+  .lbl{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.1em;padding:3px 8px;border-radius:6px;vertical-align:middle}
+  .lbl.v{background:#E4F2EA;color:#14532D}
+  .lbl.o{background:#EAF0F5;color:#1E4E79}
+  .lbl.i{background:#F3EBD9;color:#8A6D1F}
+  .lbl.r{background:#FBE9E4;color:#8A3B22}
+  .lbl.tbc{background:#EFE9F5;color:#5B3B8A}
+
+  /* Tables */
+  .tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px}
+  table{width:100%;border-collapse:collapse;min-width:640px}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);white-space:nowrap}
+  td{padding:13px 18px;border-bottom:1px solid var(--line);font-size:13.5px;vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td b{color:var(--green)}
+
+  /* Flow chips */
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:18px 0}
+  .chip{background:var(--green);color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;padding:9px 14px;border-radius:999px;white-space:nowrap}
+  .chip.hot{background:var(--gold);color:#3A2E10}
+  .arr{color:var(--gold);font-weight:700;font-size:15px}
+
+  /* Quote/WA block */
+  .wa{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+  .wa .hdr{background:var(--green);color:#fff;padding:12px 18px;font-weight:600;font-size:14px;display:flex;gap:8px;align-items:center}
+  .wa .body{padding:18px;font-family:ui-monospace,Menlo,monospace;font-size:13px;white-space:pre-wrap;color:#0F2A1F;background:#FDFCF9}
+  .wa .body .b{color:#3E7D5E;font-weight:700}
+
+  /* Timeline */
+  .tl{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:26px}
+  .ph{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;position:relative}
+  .ph .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);margin-bottom:10px}
+  .ph .no{font-family:'Fraunces',serif;color:var(--gold);font-size:15px;font-weight:700}
+  .ph h4{font-size:15px;margin:4px 0 6px}
+  .ph p{font-size:12px;color:var(--muted);margin:0}
+
+  /* Option cards */
+  .opt{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:12px}
+  .opt.rec{border:2px solid var(--green);box-shadow:0 8px 30px rgba(11,61,46,.10)}
+  .opt .flag{align-self:flex-start;background:var(--green);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+  .opt h3{font-size:20px}
+  .opt .price{font-family:'Fraunces',serif;font-size:26px;color:var(--green)}
+  .opt .price small{font-family:'Inter';font-size:12px;color:var(--muted);font-weight:400}
+  .opt ul{list-style:none;font-size:13.5px;color:var(--muted)}
+  .opt li{padding:4px 0 4px 22px;position:relative}
+  .opt li::before{content:"✓";position:absolute;left:0;color:var(--green-2);font-weight:700}
+
+  .callout{background:var(--green);color:#EDF3EF;border-radius:18px;padding:38px;margin-top:30px}
+  .callout h3{color:#fff;font-size:24px;margin-bottom:10px}
+  .callout p{color:rgba(255,255,255,.85);font-size:15px;margin:0}
+  .callout .gold{color:var(--gold-soft)}
+
+  .foot{background:#09291F;color:rgba(255,255,255,.7);padding:46px 0;font-size:13px;margin-top:70px}
+  .foot a{color:var(--gold-soft)}
+  .foot h4{color:#fff;font-family:'Fraunces',serif;font-size:16px;margin-bottom:8px}
+  .foot ol{padding-left:18px}
+  .foot li{margin-bottom:5px}
+
+  .sources{margin-top:26px;font-size:12.5px;color:var(--muted)}
+  .sources ol{padding-left:18px}
+  .sources li{margin-bottom:6px}
+  .sources a{color:var(--green-2);word-break:break-all}
+
+  @media print{
+    nav{display:none}
+    .cover{min-height:70vh}
+    section{page-break-inside:avoid;padding:30px 0 10px}
+    body{background:#fff}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="navin">
+    <div class="brand">KERUS <span>✦</span></div>
+    <div class="links">
+      <a href="#opportunity">Opportunity</a>
+      <a href="#reality">Reality</a>
+      <a href="#market">Market</a>
+      <a href="#competition">Competition</a>
+      <a href="#brand">Brand</a>
+      <a href="#ecosystem">Ecosystem</a>
+      <a href="#website">Website</a>
+      <a href="#journey">Journey</a>
+      <a href="#whatsapp">WhatsApp</a>
+      <a href="#seo">SEO</a>
+      <a href="#content">Content</a>
+      <a href="#moat">Moat</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#plan90">90 Days</a>
+      <a href="#vision">Vision</a>
+      <a href="#investment">Investment</a>
+      <a href="#kpis">KPIs</a>
+      <a href="#next">Next Steps</a>
+    </div>
+  </div>
+</nav>
+
+<!-- COVER -->
+<header class="cover">
+  <img src="assets/cover.jpg" alt="Land Cruiser on a Kenyan savanna road at sunrise" />
+  <div class="shade"></div>
+  <div class="inner">
+    <span class="tag">Confidential · August 2026</span>
+    <h1>From a phone number<br/>to a <em>digital business engine.</em></h1>
+    <p class="sub">A digital transformation, brand dominance &amp; customer acquisition strategy for Kerus Tours &amp; Travellers — Kenya's next trusted mobility and travel brand.</p>
+    <div class="northstar">
+      <p>Today, Kerus can only be reached by customers who <strong>already have the number</strong>.<br/>Tomorrow: <strong>DISCOVER → TRUST → ENGAGE → BOOK → REVIEW → RETURN.</strong></p>
+    </div>
+    <div class="meta">
+      <div><b>Prepared for</b>Rhoda Kerubo — Owner, Kerus Tours &amp; Travellers, Nairobi</div>
+      <div><b>Prepared by</b>Parmenas Digital — Transformation &amp; Growth Partner</div>
+      <div><b>Date</b>13 August 2026</div>
+    </div>
+  </div>
+</header>
+
+<!-- 1 OPPORTUNITY -->
+<section id="opportunity">
+  <div class="wrap">
+    <div class="kicker">01 · Executive Opportunity</div>
+    <h2>Kerus already has attention.<br/>It just has nowhere to keep it.</h2>
+    <p class="lede">The business has been publicly presented, and Rhoda's contact has been put in front of potential customers. The problem: attention currently terminates at a phone number. Everything a customer could do next — check the fleet, see prices, trust the business, book, review, return — happens outside the business.</p>
+    <div class="flow">
+      <span class="chip">ATTENTION</span><span class="arr">→</span>
+      <span class="chip hot">PHONE NUMBER</span><span class="arr">→</span>
+      <span class="chip" style="background:#5C6B63">nothing else</span>
+    </div>
+    <p style="color:var(--muted)">The transformation closes the loop — every stage owned, measured and optimised:</p>
+    <div class="flow">
+      <span class="chip hot">ATTENTION</span><span class="arr">→</span><span class="chip">DISCOVERY</span><span class="arr">→</span><span class="chip">TRUST</span><span class="arr">→</span><span class="chip">ENQUIRY</span><span class="arr">→</span><span class="chip">QUOTE</span><span class="arr">→</span><span class="chip">BOOKING</span><span class="arr">→</span><span class="chip">PAYMENT</span><span class="arr">→</span><span class="chip">EXPERIENCE</span><span class="arr">→</span><span class="chip">REVIEW</span><span class="arr">→</span><span class="chip hot">REPEAT</span>
+    </div>
+    <div class="grid g2" style="margin-top:30px">
+      <div class="card stat"><div class="n">2.39M</div><div class="l">international arrivals in Kenya 2024, +14.7% YoY (KNBS) — and still rising in 2025</div></div>
+      <div class="card stat"><div class="n">~97%</div><div class="l">of Kenyan internet users on WhatsApp — the customer's pocket <em>is</em> the front door</div></div>
+    </div>
+    <p class="sources">This is not a website proposal. It is a proposal to build Kerus a <strong>digital business engine</strong>.</p>
+  </div>
+</section>
+
+<!-- 2 REALITY -->
+<section id="reality">
+  <div class="wrap">
+    <div class="kicker">02 · Current Digital Reality</div>
+    <h2>The honest audit</h2>
+    <p class="lede">Public digital intelligence audit, August 2026. Where something cannot be verified, we say so — we never fabricate.</p>
+    <div class="tblwrap">
+      <table>
+        <tr><th>Area</th><th>Finding</th><th>Status</th></tr>
+        <tr><td><b>Website</b></td><td>None found for Kerus Tours &amp; Travellers</td><td><span class="lbl o">[O] Not found</span></td></tr>
+        <tr><td><b>Google Business Profile</b></td><td>No profile found under the business name</td><td><span class="lbl o">[O] Not found</span></td></tr>
+        <tr><td><b>Social media</b></td><td>No official TikTok / Instagram / Facebook / YouTube accounts found</td><td><span class="lbl o">[O] Not found</span></td></tr>
+        <tr><td><b>Reviews</b></td><td>None found under the business name</td><td><span class="lbl o">[O] Not found</span></td></tr>
+        <tr><td><b>Branded search</b></td><td>Occupied by unrelated brands — "Keru Safaris &amp; Tours" (Nairobi), "Kerus Global" (charity), "KR Travel" (Malaysia)</td><td><span class="lbl o">[O] Observed</span></td></tr>
+        <tr><td><b>The "Patrick" exposure</b></td><td>Public reporting identifies Patrick Riang'a ("Patrick Car Dealer") as Nairobi's best-known social-media car-sales personality; the specific link to Kerus could not be independently verified</td><td><span class="lbl tbc">[TBC]</span></td></tr>
+        <tr><td><b>Fleet, pricing, registration</b></td><td>Not publicly available</td><td><span class="lbl tbc">[TBC]</span></td></tr>
+      </table>
+    </div>
+    <h3 style="margin-top:34px;font-size:22px">What having no owned digital property really costs</h3>
+    <div class="grid g3" style="margin-top:18px">
+      <div class="card"><h3>Attention leaks</h3><p>Every viral moment routes to a phone number with no trust layer behind it.</p></div>
+      <div class="card"><h3>Zero discovery</h3><p>Invisible for "car hire Nairobi", "self-drive Kenya", "JKIA transfers" — the searches with money behind them.</p></div>
+      <div class="card"><h3>No data</h3><p>No leads, no attribution, no customer database, no remarketing.</p></div>
+      <div class="card"><h3>No reputation bank</h3><p>Happy customers have nowhere to deposit public trust.</p></div>
+      <div class="card"><h3>Name risk</h3><p>"Kerus" is short, distinctive and unclaimed — an asset if claimed now, a liability if a competitor claims it first.</p></div>
+      <div class="card"><h3>Price-war only</h3><p>Without a brand layer, Kerus competes on price alone against thousands of operators.</p></div>
+    </div>
+    <div class="callout">
+      <h3>The one real asset</h3>
+      <p>Kerus already has the two hardest things to buy: <strong class="gold">a real business with real vehicles and real customers</strong>, and <strong class="gold">access to attention</strong>. The gap is purely infrastructural — and it is exactly what this programme closes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 MARKET -->
+<section id="market">
+  <div class="wrap">
+    <div class="kicker">03 · Market Opportunity</div>
+    <h2>Three demand streams, one channel</h2>
+    <div class="grid g3" style="margin-top:26px">
+      <div class="card"><h3>International tourism</h3><p>2.39M arrivals 2024 (+14.7%); JKIA ~1.62M — 67.8% of Kenya's inbound tourists. JKIA+MIA hit 1,955,000 in 2025.</p></div>
+      <div class="card"><h3>Domestic &amp; diaspora</h3><p>Nairobi's middle class, returning diaspora, weddings and events — the segment most incumbents ignore in marketing.</p></div>
+      <div class="card"><h3>Corporate &amp; institutional</h3><p>NGO, corporate and event transport — served today by older corporate players, not consumer brands.</p></div>
+    </div>
+    <p class="lede" style="margin-top:26px">Buying behaviour has shifted: customers research on <strong>TikTok / Instagram / Google</strong>, convert on <strong>WhatsApp</strong>, and trust <strong>reviews and founders</strong> more than polished ads. The winners are not the biggest fleets — they are the <strong>easiest to find, trust and book</strong>. That is a digital problem, solvable in months.</p>
+  </div>
+</section>
+
+<!-- 4 COMPETITION -->
+<section id="competition">
+  <div class="wrap">
+    <div class="kicker">04 · Competitive Intelligence</div>
+    <h2>Who plays where — and where they are weak</h2>
+    <div class="tblwrap" style="margin-top:24px">
+      <table>
+        <tr><th>Tier</th><th>Players</th><th>Strength</th><th>Weakness</th></tr>
+        <tr><td><b>International franchises</b></td><td>Avis, Budget, Europcar, Green Motion, Autounion (JKIA)</td><td>Brand trust, global bookings</td><td>Higher prices, weak local content &amp; social</td></tr>
+        <tr><td><b>Self-drive safari specialists</b></td><td>Roadtrip Africa, Self Drive Kenya</td><td>Good SEO, strong 4×4 positioning</td><td>Thin domestic/WhatsApp-first experience</td></tr>
+        <tr><td><b>Corporate leaders</b></td><td>Avenue Car Hire (44 yrs, 300+ vehicles, 4.3★/126)</td><td>Institutional trust, fleet depth</td><td>Not consumer-social</td></tr>
+        <tr><td><b>Value/local operators</b></td><td>Kellymax (4.9★/304), Unicorn (4.6★/149), Hire N' Drive (4.3★/111), Isura (4.9★/92), TWIXT, Metro</td><td>Local service, price</td><td>Basic websites, opaque pricing, weak content, low TikTok presence</td></tr>
+        <tr><td><b>Social-first</b></td><td>Lipri Car Hire (10K+ IG followers)</td><td>Social proof</td><td>Thin web/booking layer</td></tr>
+      </table>
+    </div>
+    <div class="grid g2" style="margin-top:28px">
+      <div class="card">
+        <h3>What customers still struggle with</h3>
+        <p>Hidden costs · unclear self-drive requirements &amp; insurance · fear of being stranded · unverifiable operators ("is this company real?") · slow WhatsApp replies · no way to compare confidently.</p>
+      </div>
+      <div class="card" style="border-color:var(--gold)">
+        <h3>The white space <span class="gold">(the moat)</span></h3>
+        <p>No Nairobi operator today combines: <b>transparent pricing + instant structured WhatsApp quoting + a systematic short-video content engine + a founder-led brand + a review velocity system + a CRM that remembers every customer.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 BRAND -->
+<section id="brand">
+  <div class="wrap">
+    <div class="kicker">05 · The Kerus Brand Opportunity</div>
+    <h2>Not an informal car-hire operation.<br/>A serious mobility company.</h2>
+    <div class="card" style="margin-top:26px;background:var(--green);color:#EDF3EF;border:none">
+      <p style="font-size:17px;color:#F4EFE4;margin:0"><em style="color:var(--gold-soft)">"For travellers, families and organisations moving through Kenya, <b>Kerus Tours &amp; Travellers</b> is the mobility partner that combines Kenyan hospitality with international rental standards — transparent pricing, documented and insured vehicles, and a booking experience built on WhatsApp and web — so every journey begins and ends with certainty."</em></p>
+    </div>
+    <div class="grid g2" style="margin-top:24px">
+      <div class="card">
+        <h3>Brand promise</h3>
+        <p>A documented, insured, on-time vehicle — and a human who answers, every time.</p>
+        <h3 style="margin-top:18px">Values</h3>
+        <p><b>Uhakika</b> (Certainty) · <b>Uwazi</b> (Transparency) · <b>Huduma</b> (Service) · <b>Usalama</b> (Safety) · <b>Ukuaji</b> (Progress)</p>
+      </div>
+      <div class="card">
+        <h3>Tagline options</h3>
+        <p>1. <b>"Mwendo wako. Uhakika wetu."</b> — <i>Your journey. Our certainty.</i> (recommended)<br/>2. "Move with certainty."<br/>3. "Driven by trust. Powered by Kenya."<br/>4. "The road, on your terms."</p>
+        <h3 style="margin-top:18px">Visual direction</h3>
+        <p>Deep forest green + warm gold · real fleet, real customers, real Kenyan roads · no stock clichés, no gradient overload.</p>
+      </div>
+    </div>
+    <div class="grid g4" style="margin-top:18px">
+      <div class="card" style="background:var(--green);border:none"><p style="color:#fff;font-weight:600;font-size:12px;letter-spacing:.1em">FOREST #0B3D2E</p></div>
+      <div class="card" style="background:var(--gold);border:none"><p style="color:#3A2E10;font-weight:600;font-size:12px;letter-spacing:.1em">GOLD #C89B3C</p></div>
+      <div class="card" style="background:#F7F4EE"><p style="color:var(--green);font-weight:600;font-size:12px;letter-spacing:.1em">SAND #F7F4EE</p></div>
+      <div class="card" style="background:#1E2A26;border:none"><p style="color:#E9D8AC;font-weight:600;font-size:12px;letter-spacing:.1em">SLATE #1E2A26</p></div>
+    </div>
+    <p class="lede" style="margin-top:24px"><b>The founder is the trust layer.</b> Rhoda is not a logo — her story, voice and customer relationships become content no faceless competitor can replicate. Founder → Trust → Authority → Community → Brand.</p>
+  </div>
+</section>
+
+<!-- 6 ECOSYSTEM -->
+<section id="ecosystem">
+  <div class="wrap">
+    <div class="kicker">06 · Proposed Digital Ecosystem</div>
+    <h2>Six connected systems, one data core</h2>
+    <div class="grid g3" style="margin-top:26px">
+      <div class="card"><h3>🟢 Owned</h3><p>kerus.co.ke website · domain &amp; professional email · customer database · CRM &amp; analytics · review system</p></div>
+      <div class="card"><h3>🔍 Discovery</h3><p>Google Business Profile · local SEO &amp; citations · content SEO (blog) · TikTok / Reels / YouTube · partnerships &amp; digital PR</p></div>
+      <div class="card"><h3>⚡ Conversion</h3><p>WhatsApp Business · instant quote flows · booking &amp; M-Pesa deposit · calls &amp; forms · email &amp; SMS</p></div>
+    </div>
+    <div class="flow" style="margin-top:28px;justify-content:center">
+      <span class="chip">Website</span><span class="chip">Google Business</span><span class="chip">WhatsApp</span><span class="chip">TikTok · IG · FB · YT</span><span class="chip">Reviews</span><span class="chip">Partners</span><span class="arr">→</span><span class="chip hot">CRM + ANALYTICS</span>
+    </div>
+    <p style="color:var(--muted);text-align:center;font-size:14px">Every touchpoint feeds one data core: leads · bookings · reviews · attribution · lifetime value.</p>
+  </div>
+</section>
+
+<!-- 7 WEBSITE -->
+<section id="website">
+  <div class="wrap">
+    <div class="kicker">07 · Website Architecture</div>
+    <h2>A digital sales &amp; booking engine — not a brochure</h2>
+    <div class="tblwrap" style="margin-top:24px">
+      <table>
+        <tr><th>Page</th><th>Objective</th><th>Primary CTA</th><th>Conversion goal</th></tr>
+        <tr><td><b>Homepage</b></td><td>Brand authority; route by need</td><td>Get a quote on WhatsApp / Browse fleet</td><td>Click-to-WhatsApp / quote start</td></tr>
+        <tr><td><b>Fleet + vehicle pages</b></td><td>Sell each car with transparent pricing</td><td>Check availability / instant quote</td><td>Vehicle-level quote</td></tr>
+        <tr><td><b>Self-drive · Chauffeur</b></td><td>Requirements, insurance, process</td><td>Start booking</td><td>Qualified lead</td></tr>
+        <tr><td><b>Airport transfers</b></td><td>Fixed-price JKIA / Wilson meet &amp; greet</td><td>Book transfer</td><td>Transfer booking</td></tr>
+        <tr><td><b>Tours &amp; travel</b></td><td>Day trips, safaris, curated routes</td><td>Plan my trip</td><td>Tour enquiry</td></tr>
+        <tr><td><b>Corporate · Long-term</b></td><td>Accounts, invoicing, lease logic</td><td>Talk to accounts / monthly quote</td><td>Corporate lead</td></tr>
+        <tr><td><b>Events &amp; weddings</b></td><td>Wedding cars, group transport</td><td>Check your date</td><td>Event quote</td></tr>
+        <tr><td><b>About · Why Kerus</b></td><td>Founder story, fleet care, proof</td><td>Follow / WhatsApp</td><td>Trust → conversion</td></tr>
+        <tr><td><b>Reviews · FAQ</b></td><td>Social proof; objection removal</td><td>Book / leave a review</td><td>Conversion assist + reviews</td></tr>
+        <tr><td><b>Quote · Booking</b></td><td>Structured lead → deposit → confirmation</td><td>Submit / Pay deposit (M-Pesa)</td><td>Confirmed booking</td></tr>
+        <tr><td><b>Blog / Travel intelligence</b></td><td>Guides, itineraries, road-trip intel</td><td>Related offer quote</td><td>Organic growth + retargeting</td></tr>
+      </table>
+    </div>
+    <p class="lede" style="margin-top:22px">Every page: structured data (schema) · speed budget · UTM-tracked CTAs · WhatsApp deep links pre-filled per vehicle — <b>no hidden pricing anywhere</b>, the category's #1 trust gap.</p>
+  </div>
+</section>
+
+<!-- 8 JOURNEY -->
+<section id="journey">
+  <div class="wrap">
+    <div class="kicker">08 · Customer Journey</div>
+    <h2>The journey — and every friction point, fixed</h2>
+    <div class="tblwrap" style="margin-top:24px">
+      <table>
+        <tr><th>Stage</th><th>Today</th><th>Fix</th></tr>
+        <tr><td><b>Attention</b></td><td>Happens — then dies</td><td>Systematised content engine</td></tr>
+        <tr><td><b>Discovery</b></td><td>No profile, no link</td><td>Branded social bios → website</td></tr>
+        <tr><td><b>Trust</b></td><td>Nothing exists</td><td>Fast site + reviews + founder story</td></tr>
+        <tr><td><b>Information</b></td><td>Phone-only, slow</td><td>Transparent specs, prices, requirements</td></tr>
+        <tr><td><b>Enquiry → Quote</b></td><td>Ad-hoc conversation</td><td>Structured 2-minute WhatsApp flow</td></tr>
+        <tr><td><b>Booking → Payment</b></td><td>Verbal, untracked</td><td>Written confirmation + M-Pesa deposit</td></tr>
+        <tr><td><b>Experience</b></td><td>Unclear condition records</td><td>Digital check-in/out photos</td></tr>
+        <tr><td><b>Review → Referral → Repeat</b></td><td>Never asked, forgotten</td><td>Automated review asks; CRM re-engagement</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 9 WHATSAPP -->
+<section id="whatsapp">
+  <div class="wrap">
+    <div class="kicker">09 · WhatsApp Commerce</div>
+    <h2>WhatsApp is infrastructure, not a phone number</h2>
+    <div class="wa" style="margin-top:24px">
+      <div class="hdr">💬 WhatsApp Business — conversation architecture</div>
+      <div class="body"><span class="b">GATE 0 — GREETING (instant, always)</span>
+"Karibu Kerus Tours &amp; Travellers 🚙✨
+How can we help today?
+1️⃣ Self-drive  2️⃣ Chauffeur  3️⃣ Airport transfer
+4️⃣ Tours       5️⃣ Corporate  6️⃣ Talk to a person"
+
+<span class="b">GATE 1 — QUALIFY (automated quick replies)</span>
+Name · dates · vehicle preference · pickup location ·
+passengers · self-drive requirements (licence, age, deposit)
+
+<span class="b">GATE 2 — QUOTE (human + template, &lt; 30 min)</span>
+Structured quote: vehicle · dates · rate × days · deposit ·
+balance · included (insurance, mileage) · next step
+
+<span class="b">GATE 3 — BOOK</span>
+Written confirmation → M-Pesa deposit → receipt → ref → T&amp;Cs
+
+<span class="b">GATE 4 — PRE-TRIP (automated)</span>  T-2 days reminder + checklist
+<span class="b">GATE 5 — HANDOVER</span>  photo check-in (condition, odometer, fuel)
+<span class="b">GATE 6 — RETURN → REVIEW (automated)</span>  thank-you → Google
+review link → referral ask → "we saved your number"</div>
+    </div>
+    <div class="grid g2" style="margin-top:22px">
+      <div class="card stat"><div class="n">&lt; 5 min</div><div class="l">first human response standard, business hours 7:00–21:00</div></div>
+      <div class="card stat"><div class="n">100%</div><div class="l">of conversations logged to CRM with their source</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 SEO + CONTENT -->
+<section id="seo">
+  <div class="wrap">
+    <div class="kicker">10 · SEO Strategy (12–24 months)</div>
+    <h2>We don't promise rankings. We build what produces them.</h2>
+    <div class="grid g2" style="margin-top:26px">
+      <div class="card">
+        <h3>Keyword clusters</h3>
+        <p><b>Branded</b> — "kerus tours &amp; travellers", "kerus car hire"<br/>
+        <b>Local</b> — "car hire Nairobi", "self drive car hire Nairobi", "car hire JKIA"<br/>
+        <b>Commercial</b> — "toyota prado hire nairobi price", "monthly car rental Kenya", "wedding car hire Nairobi"<br/>
+        <b>Informational</b> — "car hire requirements in Kenya", "self drive safari Kenya cost"<br/>
+        <b>Travel</b> — "Nairobi to Maasai Mara road trip", "day trips from Nairobi"</p>
+      </div>
+      <div class="card">
+        <h3>The mechanisms</h3>
+        <p>Technical SEO foundation · internal linking architecture · 30+ local citations · Google Business optimisation (posts, Q&amp;A, review velocity) · digital PR to travel &amp; diaspora platforms · 2 blog guides/month · measured in Search Console, monthly.</p>
+      </div>
+    </div>
+</section>
+<section id="content" style="padding-top:30px">
+    <div class="wrap">
+    <div class="kicker">11 · Content Engine</div>
+    <h2>One shoot → ten assets → every platform</h2>
+    <div class="flow" style="margin-top:22px">
+      <span class="chip">1 monthly production day</span><span class="arr">→</span>
+      <span class="chip">1 YouTube long-form</span><span class="arr">→</span>
+      <span class="chip">3–5 TikTok/Reels</span><span class="arr">→</span>
+      <span class="chip">1 blog guide</span><span class="arr">→</span>
+      <span class="chip">WhatsApp Status daily</span><span class="arr">→</span>
+      <span class="chip">GBP posts</span>
+    </div>
+    <div class="grid g3" style="margin-top:24px">
+      <div class="card"><h3>Nine pillars</h3><p>Fleet · Education · Travel · Trust · Behind the scenes · Founder (Rhoda) · Social proof · Offers · Authority</p></div>
+      <div class="card"><h3>Cadence</h3><p>TikTok/Reels 3×/wk · Facebook 2–3×/wk · YouTube 1×/wk · Blog 2×/mo · WhatsApp Status daily</p></div>
+      <div class="card"><h3>Founder content</h3><p>Rhoda's story in her voice, weekly — the human trust layer no faceless competitor can copy.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 MOAT -->
+<section id="moat">
+  <div class="wrap">
+    <div class="kicker">12 · Automation · Analytics · Moat</div>
+    <h2>Assets that compound every month</h2>
+    <div class="grid g2" style="margin-top:26px">
+      <div class="card">
+        <h3>Ten automations</h3>
+        <p>Website enquiry → CRM · WhatsApp enquiry → CRM · Booking → confirmation · Payment → receipt · Upcoming booking → reminder · Return → review request · Inactive → re-engagement · Repeat → loyalty offer · Review → reputation DB · Content → publishing workflow.</p>
+        <p style="margin-top:10px">Automation removes friction, <b>never the human</b> — every flow ends at a person.</p>
+      </div>
+      <div class="card">
+        <h3>One dashboard, six money questions</h3>
+        <p>Where are customers coming from? · Which channel books most? · Which vehicle earns most? · What is CAC? · What is repeat rate? · What share of enquiries becomes bookings?</p>
+        <p style="margin-top:10px">Tracked: visitors · search impressions/clicks · Maps actions · WhatsApp clicks · calls · quotes · bookings · conversion · revenue by channel · reviews · SEO growth.</p>
+      </div>
+    </div>
+    <div class="tblwrap" style="margin-top:26px">
+      <table>
+        <tr><th>Moat asset</th><th>Why it compounds</th></tr>
+        <tr><td><b>Customer database &amp; booking history</b></td><td>Every campaign smarter than the last; history can't be bought</td></tr>
+        <tr><td><b>Review portfolio (velocity + volume)</b></td><td>Google trust compounds; late competitors start at zero</td></tr>
+        <tr><td><b>SEO authority &amp; content library</b></td><td>Pages rank for years; rankings are path-dependent</td></tr>
+        <tr><td><b>CRM workflows &amp; automation</b></td><td>Scales without adding staff</td></tr>
+        <tr><td><b>Brand + founder recognition</b></td><td>Attention → recall → direct &amp; branded search</td></tr>
+        <tr><td><b>Partnership &amp; referral network</b></td><td>Distribution competitors can't easily replicate</td></tr>
+        <tr><td><b>First-party analytics</b></td><td>Pricing &amp; channel decisions based on real data</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 13 ROADMAP -->
+<section id="roadmap">
+  <div class="wrap">
+    <div class="kicker">13 · Implementation Roadmap</div>
+    <h2>The Mwendo Framework</h2>
+    <p class="lede"><em>Mwendo</em> — Swahili for "movement / journey / pace" (working name). Nine stages, delivered as the <b>Kerus Digital Growth Engine</b> programme.</p>
+    <div class="flow" style="margin-top:14px">
+      <span class="chip">DISCOVER</span><span class="arr">→</span><span class="chip">POSITION</span><span class="arr">→</span><span class="chip">BUILD</span><span class="arr">→</span><span class="chip">CONNECT</span><span class="arr">→</span><span class="chip">ATTRACT</span><span class="arr">→</span><span class="chip">CONVERT</span><span class="arr">→</span><span class="chip">RETAIN</span><span class="arr">→</span><span class="chip">OPTIMIZE</span><span class="arr">→</span><span class="chip hot">SCALE</span>
+    </div>
+    <div class="tl">
+      <div class="ph"><div class="dot"></div><div class="no">P0</div><h4>Intelligence &amp; Strategy</h4><p>Wk 1–2 · facts, brand, keyword map</p></div>
+      <div class="ph"><div class="dot"></div><div class="no">P1</div><h4>Digital Foundation</h4><p>Wk 2–4 · domain, GBP, WhatsApp, analytics, CRM</p></div>
+      <div class="ph"><div class="dot"></div><div class="no">P2</div><h4>Brand &amp; Website</h4><p>Wk 4–10 · booking-engine site live</p></div>
+      <div class="ph"><div class="dot"></div><div class="no">P3</div><h4>Search &amp; Local</h4><p>Mo 2–5 · SEO, citations, reviews</p></div>
+      <div class="ph"><div class="dot"></div><div class="no">P4</div><h4>Social &amp; Content</h4><p>Mo 2–6 · content machine running</p></div>
+      <div class="ph"><div class="dot"></div><div class="no">P5</div><h4>WhatsApp &amp; CRM</h4><p>Mo 3–5 · quoting, booking, M-Pesa</p></div>
+      <div class="ph"><div class="dot"></div><div class="no">P6</div><h4>Automation</h4><p>Mo 5–8 · 10 workflows live</p></div>
+      <div class="ph"><div class="dot"></div><div class="no">P7</div><h4>Growth &amp; Partnerships</h4><p>Mo 6–12 · ads on CAC, partners</p></div>
+      <div class="ph"><div class="dot" style="background:var(--green)"></div><div class="no">P8</div><h4>Optimize &amp; Scale</h4><p>Mo 6+ · continuous</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 90 DAYS -->
+<section id="plan90">
+  <div class="wrap">
+    <div class="kicker">14 · 90-Day Plan</div>
+    <h2>Measurable infrastructure — no empty promises</h2>
+    <p class="lede">No guaranteed revenue, rankings or virality. Nine operational outcomes with proof:</p>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card"><h3>1 · Assets live</h3><p>Website, GBP, TikTok/IG/FB/YT, WhatsApp Business, analytics</p></div>
+      <div class="card"><h3>2 · Website indexed</h3><p>Search Console verified; core pages indexed</p></div>
+      <div class="card"><h3>3 · Google presence</h3><p>GBP verified, optimised, 10+ posts &amp; photos</p></div>
+      <div class="card"><h3>4 · Enquiry mechanism</h3><p>Quote form + WhatsApp flow end-to-end</p></div>
+      <div class="card"><h3>5 · WhatsApp funnel</h3><p>Greeting + qualification + templates live</p></div>
+      <div class="card"><h3>6 · Analytics live</h3><p>GA4 + GSC + dashboard v1</p></div>
+      <div class="card"><h3>7 · Content engine active</h3><p>12+ short videos, 2 blog guides</p></div>
+      <div class="card"><h3>8 · Review system on</h3><p>5+ invited Google reviews</p></div>
+      <div class="card"><h3>9 · Lead tracking</h3><p>100% of leads logged with source</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 VISION -->
+<section id="vision">
+  <div class="wrap">
+    <div class="kicker">15 · The Vision</div>
+    <h2>Month 12 — and five years</h2>
+    <div class="grid g2" style="margin-top:26px">
+      <div>
+        <img src="assets/vision.jpg" alt="Fleet outside a modern Nairobi office at dusk" style="width:100%;border-radius:16px;display:block" />
+        <p style="font-size:12px;color:var(--muted);margin-top:8px">Conceptual direction — the long-term vision: a digitally enabled mobility company.</p>
+      </div>
+      <div class="card">
+        <h3>Today</h3>
+        <p>Findable only with the phone number · no website · no reviews · ad-hoc WhatsApp · no data · one-off customers · invisible brand.</p>
+        <h3 style="margin-top:18px">Month 12</h3>
+        <p>Found on Google, Maps, TikTok &amp; Instagram · fast booking-engine website with transparent pricing · growing 4.7★+ review portfolio · structured WhatsApp booking, &lt;5 min response · every lead &amp; channel measured · repeat customers &amp; corporate accounts · partnerships distributing Kerus.</p>
+        <h3 style="margin-top:18px">Years 3–5</h3>
+        <p>Customer portal · online fleet management · PWA/app · corporate dashboard · loyalty &amp; referral · partner portal · multi-city &amp; East African expansion — each gated on real data, not enthusiasm.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 INVESTMENT -->
+<section id="investment">
+  <div class="wrap">
+    <div class="kicker">16 · Investment</div>
+    <h2>Three models — benchmarks, not a quotation</h2>
+    <p class="lede">Ranges benchmarked against current Kenyan market rates for comparable scope. Final figures depend on Phase 0 confirmed scope and current quotes.</p>
+    <div class="grid g3" style="margin-top:24px">
+      <div class="opt">
+        <h3>A — Digital Foundation</h3>
+        <p style="font-size:13px;color:var(--muted)">Strategy, brand, website, GBP, WhatsApp setup, analytics</p>
+        <div class="price">KES 150–300K <small>one-time</small></div>
+        <ul><li>Website + brand system</li><li>Google Business Profile</li><li>WhatsApp Business setup</li><li>Analytics foundation</li></ul>
+      </div>
+      <div class="opt">
+        <h3>B — Foundation + Growth</h3>
+        <p style="font-size:13px;color:var(--muted)">A + SEO, content, social, reviews, reporting (min. 6 months)</p>
+        <div class="price">KES 150–300K <small>+ KES 40–75K/mo</small></div>
+        <ul><li>Everything in A</li><li>SEO &amp; content engine</li><li>Social management</li><li>Review system + reporting</li></ul>
+      </div>
+      <div class="opt rec">
+        <span class="flag">Recommended</span>
+        <h3>C — Full Transformation Partnership</h3>
+        <p style="font-size:13px;color:var(--muted)">A + B + WhatsApp/CRM system, automation, analytics, ads, partnerships</p>
+        <div class="price">KES 150–300K <small>+ KES 75–150K/mo</small></div>
+        <ul><li>Everything in A &amp; B</li><li>WhatsApp/CRM + automation</li><li>Ads managed on CAC</li><li>Partnership engine + governance</li></ul>
+      </div>
+    </div>
+    <div class="tblwrap" style="margin-top:26px">
+      <table>
+        <tr><th>Third-party costs (at cost, no markup)</th><th>Benchmark</th></tr>
+        <tr><td>Domain .co.ke + defensive .com</td><td>~KES 1,500–4,000 / year</td></tr>
+        <tr><td>Hosting (managed, with CDN)</td><td>~KES 8,000–24,000 / year</td></tr>
+        <tr><td>Google Workspace</td><td>~KES 1,900 / user / month</td></tr>
+        <tr><td>CRM (free tier → paid as volume grows)</td><td>KES 0–3,000 / month</td></tr>
+        <tr><td>WhatsApp Business API usage (low volume)</td><td>~KES 2,000–6,000 / month</td></tr>
+        <tr><td>Advertising budget (managed within retainer)</td><td>KES 35,000–100,000 / month from mo 2–3, scaled on measured CPL/CPB</td></tr>
+      </table>
+    </div>
+    <div class="callout">
+      <h3>Why Option C</h3>
+      <p>The compounding assets — reviews, SEO, content, data — only pay off with <strong class="gold">continuity</strong>. A one-time build in this category is how competitors end up back in the same place two years later. And to be clear: <strong class="gold">Kerus owns everything</strong> — domain, accounts, content, data — on open, exportable technology. Continuity is earned by performance, never by possession.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 17 KPIs -->
+<section id="kpis">
+  <div class="wrap">
+    <div class="kicker">17 · KPIs</div>
+    <h2>Executive scorecard</h2>
+    <div class="tblwrap" style="margin-top:24px">
+      <table>
+        <tr><th>KPI</th><th>90 days</th><th>12 months</th></tr>
+        <tr><td>Digital assets live &amp; operational</td><td>100%</td><td>100% + automation live</td></tr>
+        <tr><td>Core pages indexed (Search Console)</td><td>&gt;80%</td><td>100% + growing impressions</td></tr>
+        <tr><td>Google reviews (invited, organic)</td><td>5+</td><td>25–50, target 4.7★+</td></tr>
+        <tr><td>WhatsApp first response</td><td>&lt;5 min (business hrs)</td><td>&lt;5 min, automated qualification</td></tr>
+        <tr><td>Enquiries → bookings</td><td>baseline measured</td><td>≥25%</td></tr>
+        <tr><td>Leads logged with source</td><td>100%</td><td>100%</td></tr>
+        <tr><td>Short videos / blog guides published</td><td>12+ / 2</td><td>150+ / 20+</td></tr>
+        <tr><td>Organic sessions per month</td><td>baseline</td><td>3,000–8,000</td></tr>
+        <tr><td>Combined social following</td><td>baseline</td><td>10,000–25,000</td></tr>
+        <tr><td>Bookings via digital channels</td><td>baseline</td><td>30–50% of total</td></tr>
+        <tr><td>Repeat booking rate</td><td>baseline</td><td>≥20%</td></tr>
+        <tr><td>Cost per lead / booking by channel</td><td>measured</td><td>known &amp; optimised</td></tr>
+      </table>
+    </div>
+    <p class="sources" style="margin-top:12px">Directional targets — not guarantees.</p>
+  </div>
+</section>
+
+<!-- 18 NEXT -->
+<section id="next">
+  <div class="wrap">
+    <div class="kicker">18 · Next Steps</div>
+    <h2>Three decisions this week</h2>
+    <div class="grid g3" style="margin-top:24px">
+      <div class="card"><h3>1 · Discovery call</h3><p>30 minutes — confirm the facts marked [TBC]: fleet, pricing, requirements, registration, the Patrick context, goals.</p></div>
+      <div class="card"><h3>2 · Phase 0 report</h3><p>Confirmed audit, brand direction, fleet photography plan, and a firm quotation based on confirmed scope.</p></div>
+      <div class="card"><h3>3 · Choose the model</h3><p>Option A, B or C — then the first 30 days begin. They are already mapped.</p></div>
+    </div>
+    <div class="callout" style="margin-top:34px">
+      <h3>The goal is not "build Kerus a website."</h3>
+      <p>It is <strong class="gold">BUILD KERUS A DIGITAL BUSINESS ENGINE.</strong> The market is growing. The channel is in your customer's pocket. The name is still yours to claim.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <h4>Sources &amp; evidence base</h4>
+    <ol>
+      <li>KNBS Economic Survey 2025 (arrivals) via Eastleigh Voice — <a href="https://eastleighvoice.co.ke/business/146576/kenya-records-147pc-rise-in-international-tourist-arrivals-in-2024-report">link</a></li>
+      <li>TRI Annual Tourism Sector Performance Report 2024 — <a href="https://tri.go.ke/wp-content/uploads/2025/02/TRI-Tourism-Sector-Performance-Report-2024.pdf">link</a></li>
+      <li>KNBS via The Star — JKIA &amp; MIA arrivals to 2025 — <a href="https://www.the-star.co.ke/news/infographics/2026-06-16-international-visitor-arrivals-at-jkia-and-mia">link</a></li>
+      <li>Nairobi car-hire rate guide 2026 — <a href="https://carhirenairobi.co.ke/car-hire-nairobi-cost/">link</a>; self-drive rate cross-checks — <a href="https://gorillasafarisrwanda.com/self-drive-car-hire-nairobi-kenya-rentals.htm">link</a></li>
+      <li>Competitor landscape &amp; review counts — <a href="https://moversinnairobi.co.ke/cheapest-car-hire-services-in-nairobi/">link</a>; Avenue Car Hire — <a href="https://www.avenuecarhire.com/">link</a></li>
+      <li>Patrick Riang'a public profile — <a href="https://kenya-today.com/popular-car-sales-executive-patrick-parts-ways-with-car-soko-after-years-of-service-promises-new-beginning/">link</a>, <a href="https://whownskenya.com/patrick-rianga-car-soko-dr-kingori-interview-car-salesman/">link</a></li>
+      <li>WhatsApp penetration statistics (Kenya) — <a href="https://www.ycloud.com/blog/whatsapp-statistics-for-businesses">link</a>, <a href="https://helloduty.com/blogs/how-whatsapp-is-transforming-business-communication-in-kenya">link</a></li>
+      <li>Kenyan website cost benchmarks — <a href="https://teracreations.com/how-much-does-website-design-cost-in-kenya-in-2025/">link</a>, <a href="https://oracom.co.ke/the-cost-of-a-website-in-kenya/">link</a></li>
+    </ol>
+    <p style="margin-top:26px">Prepared for <b style="color:#fff">Rhoda Kerubo — Kerus Tours &amp; Travellers</b> · Confidential · 13 August 2026<br/>
+    Digital Transformation &amp; Growth Partner — Parmenas Digital. Companion documents: <b>01-executive-proposal.md</b> (this content in full) · <b>02-internal-strategic-blueprint.md</b> (engineering &amp; execution detail).</p>
+  </div>
+</footer>
+
+</body>
+</html>
